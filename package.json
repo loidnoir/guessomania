@@ -1,0 +1,28 @@
+{
+  "name": "guessomania",
+  "version": "1.0.0",
+  "main": "./build/app.js",
+  "repository": "https://github.com/loidnoir/guessomania.git",
+  "author": "Samvel Petrosyan <loidnoir@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.2",
+    "@types/nodemon": "^1.19.2",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.43.0",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "dev": "nodemon --watch src -e ts --exec ts-node -r dotenv/config ./src/app.ts",
+    "start": "node -r ./build/app.js",
+    "build": "tsc --project . && tsc-alias"
+  }
+}

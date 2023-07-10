@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "strict": true,
+    "allowJs": true,
+    "checkJs": true,
+    "sourceMap": true,
+    "rootDir": "./src",
+    "outDir": "./build",
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,7 @@
+{
+  "cSpell.words": ["Alais", "Алиас"],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "python.formatting.provider": "none"
+}
