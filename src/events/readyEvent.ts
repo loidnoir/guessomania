@@ -2,6 +2,7 @@ import { ActivityType } from 'discord.js'
 import joinCommandData from '../commands/join/data'
 import playCommandData from '../commands/play/data'
 import testCommandData from '../commands/test/data'
+import { consoleSuccess } from '../helpers/loggers'
 import GameClient from '../structures/Client'
 
 export default async function(client: GameClient) {
@@ -14,5 +15,5 @@ export default async function(client: GameClient) {
     type: ActivityType.Watching
   })
 
-  console.log('App ready!')
+  consoleSuccess('App Ready!')
 }

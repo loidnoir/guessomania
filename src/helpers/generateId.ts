@@ -1,3 +1,4 @@
+import crypto from 'crypto'
 import GameClient from '../structures/Client'
 
 export default function generateId(client: GameClient) {

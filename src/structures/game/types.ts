@@ -5,6 +5,7 @@ interface GameScheme {
   hostId: string
   channelId: string
   messageId?: string
+  words: string[]
 
   winScore: number
   topic: GameTopics

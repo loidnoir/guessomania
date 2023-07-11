@@ -6,6 +6,8 @@
   "author": "Samvel Petrosyan <loidnoir@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "chalk": "4.1.2",
     "discord.js": "^14.11.0"
   },
   "devDependencies": {

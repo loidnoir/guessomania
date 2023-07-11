@@ -6,6 +6,7 @@ export default class Game implements GameScheme {
   public hostId: string
   public channelId: string
   public messageId?: string
+  public words: string[]
   public winScore: number
   public topic: GameTopics
   public difficulty: number
@@ -19,6 +20,7 @@ export default class Game implements GameScheme {
     this.hostId = data.hostId
     this.channelId = data.channelId
     this.messageId = data.messageId
+    this.words = []
 
     this.winScore = data.winScore ?? 30
     this.topic = data.topic ?? 'general'
@@ -37,8 +39,6 @@ export default class Game implements GameScheme {
     if (!game) return Error('Game was not found')
     if (game.players.includes(playerId)) return this.switchPlayer(client, gameId, playerId, teamIndex)
     if (!game.teams[teamIndex].name) return Error('Team does not exist')
-
-    console.log(game.teams[teamIndex])
 
     game.players.push(playerId)
     game.teams[teamIndex].players.push(playerId)

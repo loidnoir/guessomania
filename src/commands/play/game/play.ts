@@ -47,7 +47,7 @@ export default async function playCommandPlay(client: GameClient, interaction: B
     return
   }
 
-  const word = generateWord(game.difficulty, game.topic)
+  const word = generateWord(client, game.difficulty, game.topic, game.words)
 
   const buttons = [
     new ButtonBuilder()
@@ -79,7 +79,8 @@ export default async function playCommandPlay(client: GameClient, interaction: B
     const teamIndex = game.teams.findIndex(team => team.players.includes(playerUser.id))
 
     collector.on('collect', async (interaction) => {
-      const word = generateWord(game.difficulty, game.topic)
+      const word = generateWord(client, game.difficulty, game.topic, game.words)
+      game.words.push(word.value)
 
       if (interaction.customId == 'guessed') {
         game.teams[teamIndex].score += 1
@@ -98,6 +99,9 @@ export default async function playCommandPlay(client: GameClient, interaction: B
 
     collector.on('end', async (collected: Collection<MessageActionRowComponentBuilder, ButtonInteraction>) => {
       const maxPlayerIndex = game.teams[teamIndex].players.length - 1
+
+      game.words = []
+
       if (game.teams[teamIndex].playerIndex == maxPlayerIndex) game.teams[teamIndex].playerIndex = 0
       else game.teams[teamIndex].playerIndex += 1
 
