@@ -167,7 +167,7 @@ export default async function playCommandPlay(client: GameClient, interaction: B
 
       try {
         await message.edit({
-          content: `Good job! You have guessed ${bold(collected.size.toString())} words.`,
+          content: `Good job! You have guessed ${bold(collected.filter(value => value.customId == 'guessed').size.toString() + '/' + collected.size.toString())} words.`,
           components: [],
         })
       }

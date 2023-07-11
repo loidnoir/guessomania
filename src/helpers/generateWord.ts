@@ -5,6 +5,7 @@ export default function generateWord(client: GameClient, difficulty: number, top
   let words
 
   if (topic == 'food') words = client.foodWords
+  else if (topic == 'anime') words = client.animeWords
   else words = client.generalWords
 
   words = words.filter(word => word.difficulty == difficulty)
