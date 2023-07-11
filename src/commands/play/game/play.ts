@@ -20,6 +20,8 @@ export default async function playCommandPlay(client: GameClient, interaction: B
     return
   }
 
+  const playerUser = client.users.cache.get(player) ?? await client.users.fetch(player)
+
   if (game.messageId) {
     const channel = (client.channels.cache.get(game.channelId) ?? await client.channels.fetch(game.channelId)) as TextChannel
 
@@ -29,9 +31,27 @@ export default async function playCommandPlay(client: GameClient, interaction: B
 
     if (!message) return
 
+    const buttons = [
+      new ButtonBuilder()
+        .setCustomId(`play-${game.id}-${player}`)
+        .setLabel(`${playerUser.username} started playing`)
+        .setStyle(ButtonStyle.Success)
+        .setEmoji(emojis.play)
+        .setDisabled(true),
+      new ButtonBuilder()
+        .setCustomId(`end-${id}`)
+        .setStyle(ButtonStyle.Secondary)
+        .setLabel('End the game')
+        .setEmoji(emojis.trash)
+        .setDisabled(true)
+    ]
+
+    const actionRow = new ActionRowBuilder<MessageActionRowComponentBuilder>()
+      .addComponents(buttons)
+
     try {
       await message.edit({
-        components: [],
+        components: [actionRow],
       })
     }
 
@@ -39,8 +59,6 @@ export default async function playCommandPlay(client: GameClient, interaction: B
       console.log('Could not edit message.', err)
     }
   }
-
-  const playerUser = client.users.cache.get(player) ?? await client.users.fetch(player)
 
   if (!playerUser) {
     await interaction.reply({ content: 'Could not find this player.', ephemeral: true })
