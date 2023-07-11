@@ -50,19 +50,14 @@ const playCommandData: ChatInputApplicationCommandData = {
       required: false,
       choices: [
         {
-          name: 'Animals',
-          nameLocalizations: { 'ru': 'Животные' },
-          value: 'animal',
+          name: 'Original',
+          nameLocalizations: { 'ru': 'Оригинальная' },
+          value: 'original',
         },
         {
           name: 'Food',
           nameLocalizations: { 'ru': 'Еда' },
           value: 'food',
-        },
-        {
-          name: 'Geography',
-          nameLocalizations: { 'ru': 'География' },
-          value: 'geography',
         },
         {
           name: 'Programming',

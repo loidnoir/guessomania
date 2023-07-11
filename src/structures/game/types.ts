@@ -1,4 +1,4 @@
-type GameTopics = 'general' | 'animal' | 'food' | 'geography' | 'programming' | 'anime' | 'movie'
+type GameTopics = 'general' | 'food' | 'programming' | 'anime' | 'movie'
 
 interface GameScheme {
   id: string
