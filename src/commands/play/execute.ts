@@ -16,7 +16,7 @@ export default async function playCommandExecute(client: GameClient, interaction
     hostId: interaction.user.id,
     channelId: interaction.channelId,
     maxTeams,
-    difficulty: interaction.options.getNumber('difficulty', true),
+    // difficulty: interaction.options.getNumber('difficulty', true),
     winScore: interaction.options.getInteger('score', false),
     topic: (interaction.options.getString('topic', false) as GameTopics),
     time: interaction.options.getInteger('time', false),

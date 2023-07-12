@@ -18,5 +18,5 @@ export default async function(client: GameClient, interaction: Interaction) {
   else if (interaction.isButton() && interaction.customId.startsWith('end')) await playCommandEnd(client, interaction)
   else if (interaction.isChatInputCommand() && interaction.inCachedGuild() && interaction.command?.name == 'play') await playCommandExecute(client, interaction)
   else if (interaction.isChatInputCommand() && interaction.command?.name == 'join') await joinCommandExecute(client, interaction)
-  else if (interaction.isChatInputCommand() && interaction.command?.name == 'test') testCommandExecute(client, interaction)
+  else if (interaction.isChatInputCommand() && interaction.inCachedGuild() && interaction.command?.name == 'test') testCommandExecute(client, interaction)
 }

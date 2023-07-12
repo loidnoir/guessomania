@@ -19,28 +19,28 @@ const playCommandData: ChatInputApplicationCommandData = {
       minValue: 2,
       maxValue: 8
     },
-    {
-      name: 'difficulty',
-      nameLocalizations: { 'ru': 'сложность' },
-      description: 'Difficulty of the game.',
-      descriptionLocalizations: { 'ru': 'Сложность игры.' },
-      type: ApplicationCommandOptionType.Number,
-      required: true,
-      choices: [
-        {
-          name: 'Easy',
-          value: 0
-        },
-        {
-          name: 'Hard',
-          value: 1
-        },
-        {
-          name: 'Academic',
-          value: 2
-        },
-      ]
-    },
+    // {
+    //   name: 'difficulty',
+    //   nameLocalizations: { 'ru': 'сложность' },
+    //   description: 'Difficulty of the game.',
+    //   descriptionLocalizations: { 'ru': 'Сложность игры.' },
+    //   type: ApplicationCommandOptionType.Number,
+    //   required: true,
+    //   choices: [
+    //     {
+    //       name: 'Easy',
+    //       value: 0
+    //     },
+    //     {
+    //       name: 'Hard',
+    //       value: 1
+    //     },
+    //     {
+    //       name: 'Academic',
+    //       value: 2
+    //     },
+    //   ]
+    // },
     {
       name: 'topic',
       description: 'Words topic in the game',
@@ -55,9 +55,9 @@ const playCommandData: ChatInputApplicationCommandData = {
           value: 'original',
         },
         {
-          name: 'Food',
-          nameLocalizations: { 'ru': 'Еда' },
-          value: 'food',
+          name: 'Animals',
+          nameLocalizations: { 'ru': 'Животные' },
+          value: 'animals',
         },
         {
           name: 'Programming',
@@ -69,11 +69,11 @@ const playCommandData: ChatInputApplicationCommandData = {
           nameLocalizations: { 'ru': 'Аниме' },
           value: 'anime',
         },
-        {
-          name: 'Movies',
-          nameLocalizations: { 'ru': 'Фильмы' },
-          value: 'movie',
-        }
+        // {
+        //   name: 'Movies',
+        //   nameLocalizations: { 'ru': 'Фильмы' },
+        //   value: 'movie',
+        // }
       ]
     },
     {

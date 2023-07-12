@@ -4,9 +4,10 @@ import { GameTopics } from '../structures/game/types'
 export default function generateWord(client: GameClient, difficulty: number, topic: GameTopics, duplicateWords: string[]) {
   let words
 
-  if (topic == 'food') words = client.foodWords
+  if (topic == 'animal') words = client.animalWords
   else if (topic == 'anime') words = client.animeWords
-  else words = client.generalWords
+  else if (topic == 'programming') words = client.programmingWords
+  else words = client.originalWords
 
   words = words.filter(word => word.difficulty == difficulty)
   const randomIndex = Math.floor(Math.random() * words.length)
