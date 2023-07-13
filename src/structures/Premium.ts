@@ -45,5 +45,16 @@ export default class Premium {
       update: { expiresAt: expires, buyer: user },
       create: { id: id, expiresAt: expires, buyer: user }
     })
+
+    const data = client.premium.get(id)
+
+    if (data) {
+      data.expires = expires
+      data.user = user
+    }
+
+    else {
+      client.premium.set(id, new Premium(id, user, expires))
+    }
   }
 }
