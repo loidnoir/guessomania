@@ -21,7 +21,7 @@ const playCommandData: ChatInputApplicationCommandData = {
     },
     {
       name: 'topic',
-      description: 'Words pack',
+      description: 'Words packs',
       nameLocalizations: { 'ru': 'тема' },
       descriptionLocalizations: { 'ru' : 'Тема слов в игре' },
       type: ApplicationCommandOptionType.String,
@@ -68,6 +68,16 @@ const playCommandData: ChatInputApplicationCommandData = {
       required: false,
       minValue: 10,
       maxValue: 180
+    },
+    {
+      name: 'code',
+      nameLocalizations: { 'ru': 'код' },
+      description: 'Custom invite code.',
+      descriptionLocalizations: { 'ru': 'Кастомный код приглашения.' },
+      type: ApplicationCommandOptionType.String,
+      required: false,
+      minLength: 5,
+      maxLength: 20
     }
   ]
 }

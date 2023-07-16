@@ -1,5 +1,6 @@
 import { ChatInputCommandInteraction, bold, time } from 'discord.js'
 import premiumLimits from '../../constants/premium'
+import generateErrorEmoji from '../../helpers/generateErrorEmoji'
 import generateId from '../../helpers/generateId'
 import GameClient from '../../structures/Client'
 import Premium, { PremiumTier } from '../../structures/Premium'
@@ -8,10 +9,15 @@ import { GameTopics } from '../../structures/game/types'
 import playInviteMessage from './inviteMessage'
 
 export default async function playCommandExecute(client: GameClient, interaction: ChatInputCommandInteraction<'cached'>) {
-  const id = generateId(client)
+  const id = generateId(client, interaction.options.getString('code', false))
   const premiumTier = await Premium.getTier(client, interaction.guildId)
   const maxTeams = interaction.options.getNumber('teams', true)
   const maxWords = premiumLimits[premiumTier].maxWords
+
+  if (!id) {
+    await interaction.reply({ content: `The invite code is currently in use. ${generateErrorEmoji()}`, ephemeral: true })
+    return
+  }
 
   const errorStatus = await handleCooldown(client, interaction, premiumTier)
     || await handleErrors(client, interaction)
