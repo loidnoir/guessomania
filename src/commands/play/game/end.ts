@@ -27,11 +27,11 @@ export default async function playCommandEnd(client: GameClient, interaction: Bu
 
 
   try {
-    await interaction.editReply('Game has been stopped.')
+    await interaction.update({ content: 'Game has been stopped.', components: [] })
   }
 
   catch {
-    await interaction.reply('Game has been stopped.')
+    await interaction.reply({ content: 'Game has been stopped.', ephemeral: true })
   }
 
   client.games.delete(id)

@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import { Client, Collection } from 'discord.js'
-import clientOptions from '../constants/clientOptions'
+import options from '../constants/options'
 import { Word, animals, anime, original, programming } from '../constants/words'
 import interactionEvent from '../events/interactionEvent'
 import readyEvent from '../events/readyEvent'
@@ -11,6 +11,8 @@ export default class GameClient extends Client {
   public prisma: PrismaClient = new PrismaClient()
   public games: Collection<string, Game> = new Collection()
   public premium: Collection<string, Premium> = new Collection()
+  public gamesPerDay: Collection<string, Date[]> = new Collection()
+  public cooldown: Collection<string, Date> = new Collection()
 
   public animalWords: Word[] = JSON.parse(JSON.stringify(animals)).data as Word[]
   public animeWords: Word[] = JSON.parse(JSON.stringify(anime)).data as Word[]
@@ -18,7 +20,7 @@ export default class GameClient extends Client {
   public programmingWords: Word[] = JSON.parse(JSON.stringify(programming)).data as Word[]
 
   constructor() {
-    super(clientOptions)
+    super(options)
   }
 
   public async start() {

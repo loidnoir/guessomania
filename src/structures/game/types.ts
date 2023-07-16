@@ -1,12 +1,14 @@
-type GameTopics = 'general' | 'animal' | 'programming' | 'anime' | 'movie'
+type GameTopics = 'free' | 'original' | 'animal' | 'programming' | 'anime'
 
 interface GameScheme {
-  id: string
+  gameId: string
+  guildId: string
   hostId: string
   channelId: string
   messageId?: string
   words: string[]
 
+  maxWords: number
   winScore: number
   topic: GameTopics
   difficulty: number
@@ -28,11 +30,13 @@ interface GameTeam {
 
 interface GameConstructorData {
   hostId: string
+  guildId: string
   channelId: string
   messageId?: string
   maxTeams: number
 
   winScore?: number | null
+  maxWords?: number
   topic?: GameTopics
   difficulty?: number
   time?: number | null

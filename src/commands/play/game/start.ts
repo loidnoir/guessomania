@@ -18,7 +18,7 @@ export default async function playCommandStart(client: GameClient, interaction: 
 
   const buttons = [
     new ButtonBuilder()
-      .setCustomId(`play-${game.id}-${player}`)
+      .setCustomId(`play-${game.gameId}-${player}`)
       .setLabel(`Play (${playerUser.username}'s turn)`)
       .setStyle(ButtonStyle.Success)
       .setEmoji(emojis.play),

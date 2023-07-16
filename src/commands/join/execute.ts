@@ -3,7 +3,7 @@ import generateErrorEmoji from '../../helpers/generateErrorEmoji'
 import GameClient from '../../structures/Client'
 import Game from '../../structures/game/Game'
 
-export default async function joinCommandExecute(client: GameClient, interaction: ChatInputCommandInteraction) {
+export default async function joinCommandExecute(client: GameClient, interaction: ChatInputCommandInteraction<'cached'>) {
   const code = interaction.options.getString('code', true)
   const teamIndex = interaction.options.getNumber('team', true)
 
@@ -14,10 +14,10 @@ export default async function joinCommandExecute(client: GameClient, interaction
     return
   }
 
-  const error = Game.addPlayer(client, code, interaction.user.id, teamIndex)
+  const error = await Game.addPlayer(client, code, interaction.guildId, interaction.user.id, teamIndex)
 
-  if (error) {
-    await interaction.reply({ content: `Something went wrong. Please contact our support team. ${generateErrorEmoji()}`, ephemeral: true })
+  if (typeof error == 'string') {
+    await interaction.reply({ content: error ?? 'Something went wrong', ephemeral: true })
     return
   }
 

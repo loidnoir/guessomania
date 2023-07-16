@@ -3,14 +3,16 @@ export default class Premium {
   public id: string
   public user: string
   public expires: Date
+  public tier: PremiumTier
 
-  constructor(id: string, user: string, expires: Date) {
+  constructor(id: string, user: string, expires: Date, tier: PremiumTier) {
     this.id = id
     this.user = user
     this.expires = expires
+    this.tier = tier
   }
 
-  public static async  getStatus(client: GameClient, id: string) {
+  public static async  getTier(client: GameClient, id: string): Promise<PremiumTier> {
     let data = client.premium.get(id)
 
     if (!data) {
@@ -21,29 +23,30 @@ export default class Premium {
       })
 
       if (!requestedData) {
-        data = client.premium.set(id, new Premium(id, '', new Date())).get(id)
-        return false
+        await client.prisma.premium.create({ data: { id, buyer: 'unknown', expiresAt: new Date(), tier: 'free' } })
+        data = client.premium.set(id, new Premium(id, '', new Date(), 'free')).get(id)
+        return 'free'
       }
 
       else {
-        data = client.premium.set(id, new Premium(id, requestedData.buyer, requestedData.expiresAt)).get(id)
+        data = client.premium.set(id, new Premium(id, requestedData.buyer, requestedData.expiresAt, 'free')).get(id)
 
         if (data) {
-          return data.expires > new Date()
+          return data.tier
         }
 
-        return false
+        return 'free'
       }
     }
 
-    return data.expires > new Date()
+    return data.tier
   }
 
-  public static async setPremium(client: GameClient, id: string, user: string, expires: Date) {
+  public static async setPremium(client: GameClient, id: string, user: string, expires: Date, tier: PremiumTier) {
     await client.prisma.premium.upsert({
       where: { id: id },
-      update: { expiresAt: expires, buyer: user },
-      create: { id: id, expiresAt: expires, buyer: user }
+      update: { expiresAt: expires, buyer: user, tier: tier },
+      create: { id: id, expiresAt: expires, buyer: user, tier: tier}
     })
 
     const data = client.premium.get(id)
@@ -54,7 +57,9 @@ export default class Premium {
     }
 
     else {
-      client.premium.set(id, new Premium(id, user, expires))
+      client.premium.set(id, new Premium(id, user, expires, tier))
     }
   }
 }
+
+export type PremiumTier = 'free' | 'basic' | 'ultra'

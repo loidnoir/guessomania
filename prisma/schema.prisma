@@ -12,6 +12,7 @@ datasource db {
 
 model Premium {
     id String @id
+    tier String @default("free")
     buyer String
     expiresAt DateTime
     createdAt DateTime @default(now())

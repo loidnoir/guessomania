@@ -12,38 +12,16 @@ const playCommandData: ChatInputApplicationCommandData = {
     {
       name: 'teams',
       nameLocalizations: { 'ru': 'команды' },
-      description: 'Number of teams.',
+      description: 'Amount of teams.',
       descriptionLocalizations: { 'ru': 'Количество команд.' },
       type: ApplicationCommandOptionType.Number,
       required: true,
       minValue: 2,
       maxValue: 8
     },
-    // {
-    //   name: 'difficulty',
-    //   nameLocalizations: { 'ru': 'сложность' },
-    //   description: 'Difficulty of the game.',
-    //   descriptionLocalizations: { 'ru': 'Сложность игры.' },
-    //   type: ApplicationCommandOptionType.Number,
-    //   required: true,
-    //   choices: [
-    //     {
-    //       name: 'Easy',
-    //       value: 0
-    //     },
-    //     {
-    //       name: 'Hard',
-    //       value: 1
-    //     },
-    //     {
-    //       name: 'Academic',
-    //       value: 2
-    //     },
-    //   ]
-    // },
     {
       name: 'topic',
-      description: 'Words topic in the game',
+      description: 'Words pack',
       nameLocalizations: { 'ru': 'тема' },
       descriptionLocalizations: { 'ru' : 'Тема слов в игре' },
       type: ApplicationCommandOptionType.String,
@@ -68,12 +46,7 @@ const playCommandData: ChatInputApplicationCommandData = {
           name: 'Anime',
           nameLocalizations: { 'ru': 'Аниме' },
           value: 'anime',
-        },
-        // {
-        //   name: 'Movies',
-        //   nameLocalizations: { 'ru': 'Фильмы' },
-        //   value: 'movie',
-        // }
+        }
       ]
     },
     {

@@ -2,10 +2,11 @@ import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, Collec
 import colors from '../../../constants/colors'
 import emojis from '../../../constants/emojis'
 import generateWord from '../../../helpers/generateWord'
+import sleep from '../../../helpers/sleep'
 import GameClient from '../../../structures/Client'
 import playCommandRefreshPlay from './refresh'
 
-export default async function playCommandPlay(client: GameClient, interaction: ButtonInteraction) {
+export default async function playCommandPlay(client: GameClient, interaction: ButtonInteraction<'cached'>) {
   const id = interaction.customId.split('-')[1]
   const player = interaction.customId.split('-')[2]
   const game = client.games.get(id)
@@ -33,7 +34,7 @@ export default async function playCommandPlay(client: GameClient, interaction: B
 
     const buttons = [
       new ButtonBuilder()
-        .setCustomId(`play-${game.id}-${player}`)
+        .setCustomId(`play-${game.gameId}-${player}`)
         .setLabel(`${playerUser.username} started playing`)
         .setStyle(ButtonStyle.Success)
         .setEmoji(emojis.play)
@@ -65,7 +66,11 @@ export default async function playCommandPlay(client: GameClient, interaction: B
     return
   }
 
-  const word = generateWord(client, game.difficulty, game.topic, game.words)
+  const word = await generateWord(client, interaction.guildId, game.difficulty, game.topic, game.words)
+
+  if (!word) {
+    return
+  }
 
   const buttons = [
     new ButtonBuilder()
@@ -97,7 +102,19 @@ export default async function playCommandPlay(client: GameClient, interaction: B
     const teamIndex = game.teams.findIndex(team => team.players.includes(playerUser.id))
 
     collector.on('collect', async (interaction) => {
-      const word = generateWord(client, game.difficulty, game.topic, game.words)
+      const word = await generateWord(client, interaction.guildId, game.difficulty, game.topic, game.words)
+
+      if (!word) {
+        await interaction.update({
+          content: 'No more words left.',
+          components: [],
+        })
+
+        await sleep(3_000)
+
+        return collector.stop('No words left.')
+      }
+
       game.words.push(word.value)
 
       if (interaction.customId == 'guessed') {

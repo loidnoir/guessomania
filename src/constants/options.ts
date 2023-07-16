@@ -1,6 +1,6 @@
 import { ClientOptions, Partials } from 'discord.js'
 
-const clientOptions: ClientOptions = {
+const options: ClientOptions = {
   intents: [
     'DirectMessages',
     'GuildMembers',
@@ -14,4 +14,4 @@ const clientOptions: ClientOptions = {
   ]
 }
 
-export default clientOptions
+export default options

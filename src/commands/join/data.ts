@@ -7,7 +7,7 @@ const joinCommandData: ChatInputApplicationCommandData = {
   descriptionLocalizations: { ru: 'Присоединиться к игре.' },
   type: ApplicationCommandType.ChatInput,
   defaultMemberPermissions: 'SendMessages',
-  dmPermission: true,
+  dmPermission: false,
   options: [
     {
       name: 'code',
