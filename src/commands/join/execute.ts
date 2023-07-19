@@ -1,7 +1,7 @@
+import generateErrorEmoji from '@helpers/generateErrorEmoji'
+import GameClient from '@structures/Client'
+import Game from '@structures/game/Game'
 import { ChatInputCommandInteraction, bold } from 'discord.js'
-import generateErrorEmoji from '../../helpers/generateErrorEmoji'
-import GameClient from '../../structures/Client'
-import Game from '../../structures/game/Game'
 
 export default async function joinCommandExecute(client: GameClient, interaction: ChatInputCommandInteraction<'cached'>) {
   const code = interaction.options.getString('code', true)

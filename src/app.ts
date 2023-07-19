@@ -1,3 +1,3 @@
-import GameClient from './structures/Client'
+import GameClient from '@structures/Client'
 
 new GameClient().start()

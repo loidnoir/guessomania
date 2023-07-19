@@ -1,5 +1,5 @@
+import GameClient from '@structures/Client'
 import { AutocompleteInteraction } from 'discord.js'
-import GameClient from '../../structures/Client'
 
 export default async function joinCommandAutocomplete(client: GameClient, interaction: AutocompleteInteraction) {
   const id = interaction.options.getString('code', true)

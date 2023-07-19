@@ -1,6 +1,6 @@
+import generateErrorEmoji from '@helpers/generateErrorEmoji'
+import GameClient from '@structures/Client'
 import { ButtonInteraction, TextChannel } from 'discord.js'
-import generateErrorEmoji from '../../../helpers/generateErrorEmoji'
-import GameClient from '../../../structures/Client'
 
 export default async function playCommandEnd(client: GameClient, interaction: ButtonInteraction) {
   const id = interaction.customId.split('-')[1]

@@ -1,10 +1,10 @@
+import playCommandRefreshPlay from '@commands/play/game/refresh'
+import colors from '@constants/colors'
+import emojis from '@constants/emojis'
+import generateWord from '@helpers/generateWord'
+import sleep from '@helpers/sleep'
+import GameClient from '@structures/Client'
 import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, Collection, EmbedBuilder, MessageActionRowComponentBuilder, TextChannel, bold, userMention } from 'discord.js'
-import colors from '../../../constants/colors'
-import emojis from '../../../constants/emojis'
-import generateWord from '../../../helpers/generateWord'
-import sleep from '../../../helpers/sleep'
-import GameClient from '../../../structures/Client'
-import playCommandRefreshPlay from './refresh'
 
 export default async function playCommandPlay(client: GameClient, interaction: ButtonInteraction<'cached'>) {
   const id = interaction.customId.split('-')[1]

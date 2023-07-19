@@ -1,12 +1,12 @@
+import playInviteMessage from '@commands/play/inviteMessage'
+import premiumLimits from '@constants/premium'
+import generateErrorEmoji from '@helpers/generateErrorEmoji'
+import generateId from '@helpers/generateId'
+import GameClient from '@structures/Client'
+import Premium, { PremiumTier } from '@structures/Premium'
+import Game from '@structures/game/Game'
+import { GameTopics } from '@structures/game/types'
 import { ChatInputCommandInteraction, bold, time } from 'discord.js'
-import premiumLimits from '../../constants/premium'
-import generateErrorEmoji from '../../helpers/generateErrorEmoji'
-import generateId from '../../helpers/generateId'
-import GameClient from '../../structures/Client'
-import Premium, { PremiumTier } from '../../structures/Premium'
-import Game from '../../structures/game/Game'
-import { GameTopics } from '../../structures/game/types'
-import playInviteMessage from './inviteMessage'
 
 export default async function playCommandExecute(client: GameClient, interaction: ChatInputCommandInteraction<'cached'>) {
   const id = generateId(client, interaction.options.getString('code', false))
@@ -55,13 +55,13 @@ async function handleCooldown(client: GameClient, interaction: ChatInputCommandI
   const cooldownData = client.cooldown.get(`play-${interaction.guildId}-${interaction.user.id}`)
 
   if (!cooldownData) {
-    client.cooldown.set(`play-${interaction.guildId}-${interaction.user.id}`, new Date(Date.now() + premiumLimits[premiumTier].cooldown))
+    client.cooldown.set(`play -${interaction.guildId}-${interaction.user.id}`, new Date(Date.now() + premiumLimits[premiumTier].playCommandCooldown))
     return false
   }
 
   else {
     if (cooldownData.getTime() < Date.now()) {
-      client.cooldown.set(`play-${interaction.guildId}-${interaction.user.id}`, new Date(Date.now() + premiumLimits[premiumTier].cooldown))
+      client.cooldown.set(`play-${interaction.guildId}-${interaction.user.id}`, new Date(Date.now() + premiumLimits[premiumTier].playCommandCooldown))
       return false
     }
   }

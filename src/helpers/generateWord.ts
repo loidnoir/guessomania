@@ -1,7 +1,7 @@
-import premiumLimits from '../constants/premium'
-import GameClient from '../structures/Client'
-import Premium from '../structures/Premium'
-import { GameTopics } from '../structures/game/types'
+import premiumLimits from '@constants/premium'
+import GameClient from '@structures/Client'
+import Premium from '@structures/Premium'
+import { GameTopics } from '@structures/game/types'
 
 export default async function generateWord(client: GameClient, guildId: string, difficulty: number, topic: GameTopics, duplicateWords: string[]) {
   const premiumTier = await Premium.getTier(client, guildId)

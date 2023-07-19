@@ -1,5 +1,5 @@
+import GameClient from '@structures/Client'
 import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, ChatInputCommandInteraction, MessageActionRowComponentBuilder, bold, userMention } from 'discord.js'
-import GameClient from '../../structures/Client'
 
 export default async function playInviteMessage(client: GameClient, interaction: ChatInputCommandInteraction<'cached'> | ButtonInteraction<'cached'>, id?: string, maxTeams?: number) {
   if (!id && !maxTeams && interaction.isButton()) {

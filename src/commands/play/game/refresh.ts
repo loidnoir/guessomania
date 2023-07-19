@@ -1,7 +1,7 @@
+import colors from '@constants/colors'
+import emojis from '@constants/emojis'
+import GameClient from '@structures/Client'
 import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, EmbedBuilder, MessageActionRowComponentBuilder, TextChannel, bold, userMention } from 'discord.js'
-import colors from '../../../constants/colors'
-import emojis from '../../../constants/emojis'
-import GameClient from '../../../structures/Client'
 
 export default async function playCommandRefreshPlay(client: GameClient, interaction: ButtonInteraction, id: string) {
   const game = client.games.get(id)

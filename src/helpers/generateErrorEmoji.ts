@@ -1,4 +1,4 @@
-import emojis from '../constants/emojis'
+import emojis from '@constants/emojis'
 
 export default function (): string {
   const emojisArray = emojis.error

@@ -1,0 +1,10 @@
+{
+  "data": [
+    {
+      "id": ["about us", "our team", "noir"],
+      "category": "info",
+      "label": "About us",
+      "value": "# Introduction\nGuessomania is a Discord app of the popular international game` Alias. We developed with the idea in mind of being user-friendly and easy to use. We always open for new ideas and contributions. If you have any questions or suggestions, feel free to join us in our Discord community server\n# Our team\nThe team behind is passionate team of developers who want to create exciting and fun apps for Discord users"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { APIActionRowComponent, APIMessageActionRowComponent, ActionRowData, AnySelectMenuInteraction, ButtonInteraction, ColorResolvable, CommandInteraction, ContextMenuCommandInteraction, EmbedBuilder, EmbedField, InteractionType, JSONEncodable, Message, MessageActionRowComponentBuilder, MessageActionRowComponentData, ModalMessageModalSubmitInteraction, ModalSubmitInteraction, Webhook } from 'discord.js'
-import Colors from '../constants/colors'
-import GameClient from '../structures/Client'
+import Colors from '@constants/colors'
+import GameClient from '@structures/Client'
 
 export default async function reply(
   properties: {

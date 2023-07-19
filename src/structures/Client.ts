@@ -1,3 +1,4 @@
+import { Tag, tags } from '@commands/faq/autocomplete'
 import { PrismaClient } from '@prisma/client'
 import { Client, Collection } from 'discord.js'
 import options from '../constants/options'
@@ -18,6 +19,7 @@ export default class GameClient extends Client {
   public animeWords: Word[] = JSON.parse(JSON.stringify(anime)).data as Word[]
   public originalWords: Word[] = JSON.parse(JSON.stringify(original)).data as Word[]
   public programmingWords: Word[] = JSON.parse(JSON.stringify(programming)).data as Word[]
+  public tags: Tag[] = JSON.parse(JSON.stringify(tags)).data as Tag[]
 
   constructor() {
     super(options)

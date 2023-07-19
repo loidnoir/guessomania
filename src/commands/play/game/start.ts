@@ -1,8 +1,8 @@
+import colors from '@constants/colors'
+import emojis from '@constants/emojis'
+import generateErrorEmoji from '@helpers/generateErrorEmoji'
+import GameClient from '@structures/Client'
 import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, EmbedBuilder, MessageActionRowComponentBuilder, bold, userMention } from 'discord.js'
-import colors from '../../../constants/colors'
-import emojis from '../../../constants/emojis'
-import generateErrorEmoji from '../../../helpers/generateErrorEmoji'
-import GameClient from '../../../structures/Client'
 
 export default async function playCommandStart(client: GameClient, interaction: ButtonInteraction) {
   const id = interaction.customId.split('-')[1]

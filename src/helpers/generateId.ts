@@ -1,5 +1,5 @@
+import GameClient from '@structures/Client'
 import crypto from 'crypto'
-import GameClient from '../structures/Client'
 
 export default function generateId(client: GameClient, customCode: string | null) {
   if (!customCode) {
