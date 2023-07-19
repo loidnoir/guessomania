@@ -14,7 +14,7 @@ const premiumLimits = {
   },
   basic: {
     duplication: false,
-    gamesPerDay: 50,
+    gamesPerDay: 30,
     maxWords: 500,
     maxPlayers: 6,
     maxTeams: 4,

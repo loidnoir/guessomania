@@ -14,8 +14,8 @@ import { Interaction } from 'discord.js'
 
 export default async function(client: GameClient, interaction: Interaction) {
   if (interaction.isButton() && interaction.inCachedGuild() && interaction.customId.startsWith('refresh'))  playInviteMessage(client, interaction)
-  else if (interaction.isAutocomplete() && interaction.inCachedGuild() && interaction.options.getString('code')) await joinCommandAutocomplete(client, interaction)
-  else if (interaction.isAutocomplete() && interaction.inCachedGuild() && interaction.options.getString('tag')) await faqCommandAutocomplete(client, interaction)
+  else if (interaction.isAutocomplete() && interaction.inCachedGuild() && interaction.command?.name == 'join') await joinCommandAutocomplete(client, interaction)
+  else if (interaction.isAutocomplete() && interaction.inCachedGuild() && interaction.command?.name == 'faq') await faqCommandAutocomplete(client, interaction)
   else if (interaction.isButton() && interaction.inCachedGuild() && interaction.customId.startsWith('start')) await playCommandStart(client, interaction)
   else if (interaction.isButton() && interaction.inCachedGuild() && interaction.customId.startsWith('play')) await playCommandPlay(client, interaction)
   else if (interaction.isButton() && interaction.inCachedGuild() && interaction.customId.startsWith('end')) await playCommandEnd(client, interaction)

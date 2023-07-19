@@ -30,13 +30,15 @@ const faqCommandData: ChatInputApplicationCommandData = {
 }
 
 const faqCommandCategories: faqCommandCategoriesInterface = {
-  guide: '🏷️',
-  info: '🔎'
+  guide: '🔗',
+  info: '🗒️',
+  option: '🔑'
 }
 
 interface faqCommandCategoriesInterface {
   guide: string
   info: string
+  option: string
 }
 
 export default faqCommandData

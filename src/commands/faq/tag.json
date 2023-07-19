@@ -1,10 +1,64 @@
 {
   "data": [
     {
-      "id": ["about us", "our team", "noir"],
+      "id": ["about us", "introduction", "guessomania"],
       "category": "info",
       "label": "About us",
-      "value": "# Introduction\nGuessomania is a Discord app of the popular international game` Alias. We developed with the idea in mind of being user-friendly and easy to use. We always open for new ideas and contributions. If you have any questions or suggestions, feel free to join us in our Discord community server\n# Our team\nThe team behind is passionate team of developers who want to create exciting and fun apps for Discord users"
+      "value": "# Introduction\nGuessomania is a project created by enthusiastic and aroused developers and non developers who are excited to make enjoyable and unique product for everyone. Our team always open to new people and contributions.\n# What is Guessomania\nGuessomania is a Discord game app that we created inspired by a popular game Alias, where teams of players are."
+    },
+    {
+      "id": ["support", "help"],
+      "category": "info",
+      "label": "Support",
+      "value": "# Support\nWe have great specialist who are always ready to help with any question related to our project so do not worry asking for help in our community server.\n# Critical issue\nIn case you find  critical bug or anything that you consider should not be shared publicly, please contact our specialists or developers in direct messages."
+    },
+    {
+      "id": ["feedback", "suggestion"],
+      "category": "info",
+      "label": "Feedback",
+      "value": "# Feedback\nEveryone can leave their feedbacks with features, bugs and their overall opinion. We always read all the feedbacks and try to keep up with people needs. We appreciate people’ time and effort so everyone with great ideas are and will be granted with some perks in the from of premium."
+    },
+    {
+      "id": ["teams", "groups"],
+      "category": "option",
+      "label": "Teams",
+      "value": "# Teams\nIn order to play Alias players need to be separated in teams. Ever game should contain at least 2 teams with 2 players to able to start the game. Players can change the team before the game started. With higher premium tiers host can even change the team names when setting up the game.\n- Teams 2 ≤ 6\n- Players 2 ≤ 8"
+    },
+    {
+      "id": ["games", "rounds"],
+      "category": "option",
+      "label": "Games",
+      "value": "# Games\nServers has limitation in the amount of games per day depending on the premium tier. User can not host more than one game at a time but the server can have certain amount of ongoing games depending on the premium tier.\n- Games per day 5 ≤ 500 (can be more by contacting our team)\n- Ongoing games 1 ≤ 500\nGames are destroyed after certain amount of time to not waste unnecessary resources for better performance. The structure behind the game is very performant and can handle thousands of games at a time.\n- Approximately after 12 hours since the game started\nWords per round are limited so there won’t be spams. All limitations depends on the premium tier.\n- Words per round 15 ≥ 500"
+    },
+    {
+      "id": ["players", "users", "members"],
+      "category": "option",
+      "label": "Players",
+      "value": "# Players\nEvery game requires at least 2 players in each team in order to start the game. Game can be stopped by the player who started the game. Host has to use the `/join` command.\n- Players per team 2 ≤ 8"
+    },
+    {
+      "id": ["invite", "code", "link"],
+      "category": "option",
+      "label": "Invite code",
+      "value": "# Invite code\nWhen creating a game you are provided with an invite code to share with the friends so they can join the game. With higher premium tiers invite code is customizable. Keep the invite code private from people you do not want to invite. Everyone with the invite code can use `/join` to join the game or change the team.\n- Generated invite codes are 5 characters length\n- Custom code should be 5 ≤ 20 characters length"
+    },
+    {
+      "id": ["dictionaries", "packs", "words", "topics"],
+      "category": "option",
+      "label": "Dictionaries",
+      "value": "# Dictionaries\nDictionaries are the words packs available for the game. By default it is a pack of random nouns. With premium tiers you unlock access to extra packs with special word topics. Our team constantly adds new words and keep the dictionaries updated. We always read all feedbacks and ready for new ideas for new packs. Everyone can recommend their ideas and see them released in future releases."
+    },
+    {
+      "id": ["duplicates", "duplications", "repeats"],
+      "category": "option",
+      "label": "Duplicates",
+      "value": "# Duplicates\nWords per round can be repeated and depending on the premium tier it can be removed. Anything higher than the free tier removes duplications completely."
+    },
+    {
+      "id": ["how to play", "play", "guide"],
+      "category": "guide",
+      "label": "How to play",
+      "value": "# Setup the game\nTo setup a game use `/play` command and choose how many teams will be there. You have additional settings for the game for example the words topic etc. For more information about additional options use `/faq` command and the name of option.\n# Invite players\nIn order to invite your friends to play together after using play command you will get invite code which you should share with the players. To join the game everyone including you have to run `/join` command and write the game invite code and then bot will provide the available teams to choose from.\n# Game process\nIn each round a player from every team consistently tries to explain words to other team players and tries to get as much guesses as possible. The winner is calculating after full game cycle and only after that player."
     }
   ]
 }
