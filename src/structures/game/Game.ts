@@ -9,6 +9,8 @@ export default class Game implements GameScheme {
   public hostId: string
   public channelId: string
   public messageId?: string
+  public gameStarted: Date
+  public gameStatus: boolean
   public words: string[]
   public winScore: number
   public maxWords: number
@@ -25,6 +27,10 @@ export default class Game implements GameScheme {
     this.guildId = data.guildId
     this.channelId = data.channelId
     this.messageId = data.messageId
+
+    this.gameStarted = new Date()
+    this.gameStatus = false
+
     this.words = []
 
     this.winScore = data.winScore ?? 30
@@ -46,6 +52,7 @@ export default class Game implements GameScheme {
 
     const premiumTier = await Premium.getTier(client, guildId)
 
+    if (game.gameStatus) return 'The game has already started. You can not join ongoing game.'
     if (game.players.includes(playerId)) return this.switchPlayer(client, gameId, guildId, playerId, teamIndex)
     if (!game.teams[teamIndex].name) return 'Team does not exist'
     if (game.teams[teamIndex].players.length >= premiumLimits[premiumTier].maxPlayers) return 'Team is full'

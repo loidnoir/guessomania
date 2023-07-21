@@ -44,8 +44,19 @@ export default async function playCommandExecute(client: GameClient, interaction
 
 async function handleErrors(client: GameClient, interaction: ChatInputCommandInteraction<'cached'>) {
   if (client.games.some(game => game.hostId == interaction.user.id)) {
-    await interaction.reply({ content: 'You are already hosting a game', ephemeral: true })
-    return true
+    const oldGames = client.games.filter(game => game.hostId == interaction.user.id)
+
+    oldGames.map(game => {
+      client.games.delete(game.gameId)
+    })
+  }
+
+  const expiredGames = client.games.filter(game => game.gameStarted.getTime() <= Date.now())
+
+  if (expiredGames) {
+    expiredGames.map(game => {
+      client.games.delete(game.gameId)
+    })
   }
 
   return false

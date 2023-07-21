@@ -54,6 +54,7 @@ export default async function playCommandStart(client: GameClient, interaction: 
 
   try {
     await interaction.update({ content: 'Game started!', components: [] })
+    game.gameStatus = true
   }
 
   catch (err) {

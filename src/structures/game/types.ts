@@ -6,6 +6,10 @@ interface GameScheme {
   hostId: string
   channelId: string
   messageId?: string
+
+  gameStarted: Date
+  gameStatus: boolean
+
   words: string[]
 
   maxWords: number
