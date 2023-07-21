@@ -9,11 +9,11 @@ export default async function contactCommandAutocomplete(client: GameClient, int
     interaction.respond([
       {
         name: '📖 New pack/dictionary',
-        value: 'feature-pack'
+        value: 'feature_pack'
       },
       {
         name: '🧩 New game mod',
-        value: 'feature-gamemod'
+        value: 'feature_gamemod'
       },
       {
         name: '🔎 Other',
@@ -25,15 +25,15 @@ export default async function contactCommandAutocomplete(client: GameClient, int
     interaction.respond([
       {
         name: '🐛 Bug',
-        value: 'issue-bug'
+        value: 'issue_bug'
       },
       {
         name: '💎 Premium issue',
-        value: 'issue-premium'
+        value: 'issue_premium'
       },
       {
         name: '💰 Payment issue',
-        value: 'premium-paymentIssue'
+        value: 'premium_paymentIssue'
       },
       {
         name: '🔎 Other',
@@ -45,7 +45,7 @@ export default async function contactCommandAutocomplete(client: GameClient, int
     interaction.respond([
       {
         name: '💎 Custom bot/package',
-        value: 'premium-custom'
+        value: 'premium_custom'
       },
       {
         name: '🔎 Other',
@@ -63,4 +63,4 @@ export default async function contactCommandAutocomplete(client: GameClient, int
   }
 }
 
-export type contactTag = 'feature-pack' | 'feature-gamemod' | 'issue-bug' | 'issue-premium' | 'issue-paymentIssue' | 'premium-custom' | 'other'
+export type contactTag = 'feature_pack' | 'feature_gamemod' | 'issue_bug' | 'issue_premium' | 'issue_paymentIssue' | 'premium_custom' | 'other'

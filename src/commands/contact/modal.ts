@@ -16,12 +16,10 @@ export default function contactModal(client: GameClient, interaction: ModalSubmi
   const embed = new EmbedBuilder()
     .setColor(colors.primary)
     .setDescription(`# Report from ${author.username}\nTag \`${tag}\`\nUser id \`${author.id}\``)
-    .addFields([
-      {
-        name: 'Description',
-        value: firstRow
-      }
-    ])
+    .addFields({
+      name: 'Description',
+      value: firstRow
+    })
 
   if (secondRow) {
     embed.addFields({

@@ -26,7 +26,7 @@ export default function contactCommandExecute(client: GameClient, interaction: C
 
   const rows = []
 
-  if (tag == 'feature-gamemod') {
+  if (tag == 'feature_gamemod') {
     firstRow
       .setLabel('Gamemod description')
       .setPlaceholder('Blitz, a game mod where ...')
@@ -36,7 +36,7 @@ export default function contactCommandExecute(client: GameClient, interaction: C
     rows.push(firstRow, secondRow, thirdRow)
   }
 
-  else if (tag == 'feature-pack') {
+  else if (tag == 'feature_pack') {
     firstRow
       .setLabel('Pack description')
       .setPlaceholder('Animals pack with words of...')
@@ -47,7 +47,7 @@ export default function contactCommandExecute(client: GameClient, interaction: C
     rows.push(firstRow, secondRow)
   }
 
-  else if (tag == 'issue-bug') {
+  else if (tag == 'issue_bug') {
     firstRow
       .setLabel('Describe the bug')
       .setPlaceholder('The x command not responded...')
@@ -57,7 +57,7 @@ export default function contactCommandExecute(client: GameClient, interaction: C
     rows.push(firstRow, secondRow, thirdRow)
   }
 
-  else if (tag == 'issue-paymentIssue') {
+  else if (tag == 'issue_paymentIssue') {
     firstRow
       .setLabel('Describe the issue')
       .setPlaceholder('I bought the x pack and ...')
@@ -67,7 +67,7 @@ export default function contactCommandExecute(client: GameClient, interaction: C
     rows.push(firstRow, secondRow, thirdRow)
   }
 
-  else if (tag == 'issue-premium')  {
+  else if (tag == 'issue_premium')  {
     firstRow
       .setLabel('Describe the issue')
       .setPlaceholder('The x thing from y pack ...')
@@ -77,7 +77,7 @@ export default function contactCommandExecute(client: GameClient, interaction: C
     rows.push(firstRow, secondRow, thirdRow)
   }
 
-  else if (tag == 'premium-custom') {
+  else if (tag == 'premium_custom') {
     firstRow
       .setLabel('Describe your server and the situation')
       .setPlaceholder('I have a server with x members and ...')
