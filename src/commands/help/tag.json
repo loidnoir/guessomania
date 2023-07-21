@@ -59,6 +59,13 @@
       "category": "guide",
       "label": "How to play",
       "value": "# Setup the game\nTo setup a game use `/play` command and choose how many teams will be there. You have additional settings for the game for example the words topic etc. For more information about additional options use `/faq` command and the name of option.\n# Invite players\nIn order to invite your friends to play together after using play command you will get invite code which you should share with the players. To join the game everyone including you have to run `/join` command and write the game invite code and then bot will provide the available teams to choose from.\n# Game process\nIn each round a player from every team consistently tries to explain words to other team players and tries to get as much guesses as possible. The winner is calculating after full game cycle and only after that player."
+    },
+
+    {
+      "id": ["premiums", "tiers", "subscriptions"],
+      "category": "premium",
+      "label": "Premium",
+      "value": "# Premium\nPremium is a way to help developers continue work on the project and keep the motivation for future updates. But as we want to thank to all our supporters we provide few additional features and decreased limitations.\n# Tiers\nPremium tiers are carefully planned and created to work for different needs. Whether you are a small server of friends or a big community with thousands of people.\n\nIf your server does not fit with our packages you can contact our team for custom and specific configuration. Pricing for custom configuration might differ from the default packages depending on the resources your server will require."
     }
   ]
 }

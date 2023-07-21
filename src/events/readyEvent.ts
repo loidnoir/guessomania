@@ -1,4 +1,5 @@
-import faqCommandData from '@commands/faq/data'
+import contactCommandData from '@commands/contact/data'
+import helpCommandData from '@commands/help/data'
 import joinCommandData from '@commands/join/data'
 import playCommandData from '@commands/play/data'
 import testCommandData from '@commands/test/data'
@@ -10,8 +11,9 @@ import { ActivityType } from 'discord.js'
 export default async function(client: GameClient) {
   await client.application?.commands.create(playCommandData)
   await client.application?.commands.create(joinCommandData)
-  await client.application?.commands.create(faqCommandData)
+  await client.application?.commands.create(helpCommandData)
   await client.guilds.cache.get(config.guild)?.commands.create(testCommandData)
+  await client.guilds.cache.get(config.guild)?.commands.create(contactCommandData)
 
   client.user?.setActivity({
     name: `for ${client.games.size} games`,

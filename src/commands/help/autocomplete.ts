@@ -1,9 +1,9 @@
 import GameClient from '@structures/Client'
 import { AutocompleteInteraction } from 'discord.js'
-import { faqCommandCategories, faqCommandCategoriesInterface } from './data'
+import { helpCommandCategories, helpCommandCategoriesInterface } from './data'
 import * as tags from './tag.json'
 
-export default async function faqCommandAutocomplete(client: GameClient, interaction: AutocompleteInteraction) {
+export default async function helpCommandAutocomplete(client: GameClient, interaction: AutocompleteInteraction) {
   const tagStr = interaction.options.getString('tag', true)
 
   console.log(tagStr)
@@ -13,7 +13,7 @@ export default async function faqCommandAutocomplete(client: GameClient, interac
 
     await interaction.respond(
       filtered.map(tag =>
-        ({ name: `${faqCommandCategories[tag.category as keyof(faqCommandCategoriesInterface)]} ${tag.label}`, value: tag.id[0] })
+        ({ name: `${helpCommandCategories[tag.category as keyof(helpCommandCategoriesInterface)]} ${tag.label}`, value: tag.id[0] })
       )
     )
 
@@ -22,7 +22,7 @@ export default async function faqCommandAutocomplete(client: GameClient, interac
 
   await interaction.respond(
     client.tags.map(tag =>
-      ({ name: `${faqCommandCategories[tag.category as keyof(faqCommandCategoriesInterface)]} ${tag.label}`, value: tag.id[0] })
+      ({ name: `${helpCommandCategories[tag.category as keyof(helpCommandCategoriesInterface)]} ${tag.label}`, value: tag.id[0] })
     )
   )
 }

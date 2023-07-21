@@ -1,10 +1,10 @@
 import { ApplicationCommandOptionType, ApplicationCommandType, ChatInputApplicationCommandData } from 'discord.js'
 
-const faqCommandData: ChatInputApplicationCommandData = {
-  name: 'faq',
-  nameLocalizations: { ru: 'чаво' },
-  description: 'Frequently asked questions.',
-  descriptionLocalizations: { ru: 'Часто задаваемые вопросы.' },
+const helpCommandData: ChatInputApplicationCommandData = {
+  name: 'help',
+  nameLocalizations: { ru: 'помощь' },
+  description: 'Get and answer for your question.',
+  descriptionLocalizations: { ru: 'Получите ответ на ваш вопрос.' },
   type: ApplicationCommandType.ChatInput,
   defaultMemberPermissions: 'SendMessages',
   dmPermission: false,
@@ -29,18 +29,20 @@ const faqCommandData: ChatInputApplicationCommandData = {
   ]
 }
 
-const faqCommandCategories: faqCommandCategoriesInterface = {
-  guide: '🔗',
-  info: '🗒️',
-  option: '🔑'
+const helpCommandCategories: helpCommandCategoriesInterface = {
+  guide: '🧭',
+  info: '📄',
+  option: '🔑',
+  premium: '⭐️'
 }
 
-interface faqCommandCategoriesInterface {
+interface helpCommandCategoriesInterface {
   guide: string
   info: string
   option: string
+  premium: string
 }
 
-export default faqCommandData
-export { faqCommandCategories, faqCommandCategoriesInterface }
+export default helpCommandData
+export { helpCommandCategories, helpCommandCategoriesInterface }
 

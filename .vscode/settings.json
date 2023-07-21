@@ -1,5 +1,12 @@
 {
-  "cSpell.words": ["Alais", "cooldown", "Guessomani", "Guessomania", "Алиас"],
+  "cSpell.words": [
+    "Alais",
+    "cooldown",
+    "gamemod",
+    "Guessomani",
+    "Guessomania",
+    "Алиас"
+  ],
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },

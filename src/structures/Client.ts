@@ -1,4 +1,4 @@
-import { Tag, tags } from '@commands/faq/autocomplete'
+import { Tag, tags } from '@commands/help/autocomplete'
 import { PrismaClient } from '@prisma/client'
 import { Client, Collection } from 'discord.js'
 import options from '../constants/options'

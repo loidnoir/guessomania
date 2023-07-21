@@ -2,7 +2,7 @@ import GameClient from '@structures/Client'
 import { ChatInputCommandInteraction } from 'discord.js'
 import { Tag } from './autocomplete'
 
-export default async function faqCommandExecute(client: GameClient, interaction: ChatInputCommandInteraction) {
+export default async function helpCommandExecute(client: GameClient, interaction: ChatInputCommandInteraction) {
   const id = interaction.options.getString('tag', true)
   const target = interaction.options.getUser('target')
 
