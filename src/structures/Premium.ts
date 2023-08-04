@@ -1,3 +1,4 @@
+import config from '@constants/config'
 import GameClient from './Client'
 export default class Premium {
   public id: string
@@ -12,53 +13,14 @@ export default class Premium {
     this.tier = tier
   }
 
-  public static async  getTier(client: GameClient, id: string): Promise<PremiumTier> {
-    let data = client.premium.get(id)
-
-    if (!data) {
-      const requestedData = await client.prisma.premium.findFirst({
-        where: {
-          id: id
-        }
-      })
-
-      if (!requestedData) {
-        await client.prisma.premium.create({ data: { id, buyer: 'unknown', expiresAt: new Date(), tier: 'free' } })
-        data = client.premium.set(id, new Premium(id, '', new Date(), 'free')).get(id)
-        return 'free'
-      }
-
-      else {
-        data = client.premium.set(id, new Premium(id, requestedData.buyer, requestedData.expiresAt, 'free')).get(id)
-
-        if (data) {
-          return data.tier
-        }
-
-        return 'free'
-      }
-    }
-
-    return data.tier
+  public static async getTier(client: GameClient, id: string) {
+    return await (await fetch(config.api + `/premium?guildId=${id}`)).text() as PremiumTier
   }
 
-  public static async setPremium(client: GameClient, id: string, user: string, expires: Date, tier: PremiumTier) {
-    await client.prisma.premium.upsert({
-      where: { id: id },
-      update: { expiresAt: expires, buyer: user, tier: tier },
-      create: { id: id, expiresAt: expires, buyer: user, tier: tier}
+  public static async setTier(client: GameClient, id: string, user: string, duration: string, tier: PremiumTier) {
+    await fetch(config.api + `/premium?guildId=${id}&userId=${user}&duration=${duration}&tier=${tier}`, {
+      method: 'POST'
     })
-
-    const data = client.premium.get(id)
-
-    if (data) {
-      data.expires = expires
-      data.user = user
-    }
-
-    else {
-      client.premium.set(id, new Premium(id, user, expires, tier))
-    }
   }
 }
 

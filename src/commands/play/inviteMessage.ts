@@ -41,14 +41,14 @@ export default async function playInviteMessage(client: GameClient, interaction:
 
   if (interaction.isButton()) {
     await interaction.update({
-      content: `# Invite code \`${id}\`\nAt least ${bold(minPlayers.toString())} players are required to start the game.\n${joinedPlayers ? `## Joined players\n${joinedPlayers}` : ''}`,
+      content: `# Invite code \`${id}\`\nAt least ${bold(minPlayers.toString())} players are required to start the game. Please use the refresh button after inviting players to update the message.\n${joinedPlayers ? `## Joined players\n${joinedPlayers}` : ''}`,
       components: [actionRow]
     })
   }
 
   else {
     await interaction.reply({
-      content: `# Invite code \`${id}\`\nAt least ${bold(minPlayers.toString())} players are required to start the game.\n${joinedPlayers ? `## Joined players\n${joinedPlayers}` : ''}`,
+      content: `# Invite code \`${id}\`\nAt least ${bold(minPlayers.toString())} players are required to start the game. Please use the refresh button after inviting players to update the message.\n${joinedPlayers ? `## Joined players\n${joinedPlayers}` : ''}`,
       components: [actionRow],
       ephemeral: true
     })

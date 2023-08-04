@@ -1,5 +1,4 @@
 import { Tag, tags } from '@commands/help/autocomplete'
-import { PrismaClient } from '@prisma/client'
 import { Client, Collection } from 'discord.js'
 import options from '../constants/options'
 import { Word, animals, anime, original, programming } from '../constants/words'
@@ -9,7 +8,7 @@ import Premium from './Premium'
 import Game from './game/Game'
 
 export default class GameClient extends Client {
-  public prisma: PrismaClient = new PrismaClient()
+  // public prisma: PrismaClient = new PrismaClient()
   public games: Collection<string, Game> = new Collection()
   public premium: Collection<string, Premium> = new Collection()
   public gamesPerDay: Collection<string, Date[]> = new Collection()
@@ -26,7 +25,7 @@ export default class GameClient extends Client {
   }
 
   public async start() {
-    this.prisma.$connect()
+    // this.prisma.$connect()
     this.on('interactionCreate', async interaction => await interactionEvent(this, interaction))
     this.once('ready', () => readyEvent(this))
     this.login(process.env.TOKEN)
